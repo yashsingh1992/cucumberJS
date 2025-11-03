@@ -6,7 +6,7 @@ constructor(page)
 {
       this.page = page;
       this.userName = page.locator("input#userEmail");
-      this.password = page.locator("input#userPassword");
+      this.password = page.locator("input#userPassword123");
       this.signInButton = page.locator("input#login");
 }
 
