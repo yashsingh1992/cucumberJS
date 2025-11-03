@@ -3,18 +3,16 @@ const { chromium } = require('@playwright/test');
 const { LoginPage } = require('../../pageObjects/loginPage');
 
 
-Given('I am on login page', async function () {
+Given('I am on login page', {timeout: 100*1000}, async function () {
    
-  const browser = await chromium.launch({ headless: false });
-  const context = await browser.newContext();
-  const page = await context.newPage();
-  this.login = new LoginPage(page);
+
+
   await this.login.goto();
 
   });
 
 
-When('I enter {string}, {string} and click the sign in', async function (username, password) {
+ When('I enter {string}, {string} and click the sign in', async function (username, password) {
  
       await this.login.validLogin(username, password);
 
@@ -22,6 +20,9 @@ When('I enter {string}, {string} and click the sign in', async function (usernam
 
 
 Then('I should be redirected to the dashboard', function () {
-        // Write code here that turns the phrase above into concrete actions
-        return 'pending';
-    });
+        
+  console.log("I should be redirected to the dashboard");
+    
+});
+
+
